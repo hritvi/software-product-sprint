@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hritvi Bhandari</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="../style.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top" style="color: black;">
+        <div class="container-fluid" style="color: black;">
+            
+            <div class="navbar-header page-scroll" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="../index.html"  style="color: black;">Hritvi Bhandari</a>
+            </div>
+
+           
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right"  >
+                    <li>
+                        <a href="../index.html" style="color: black;">Home</a>
+                    </li>
+                    <li>
+                        <a href="../about.html" style="color: black;">About</a>
+                    </li>
+                    <li>
+                        <a href="../resume.pdf" style="color: black;">Resume</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+    <header class="intro-header" style="color: black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading" style="padding: 150px 0px 0px 0px">
+                        <h1 style="color: black;">My journey as a mentee at CNCF</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>Hello everyone, I am Hritvi Bhandari and am currently a third year student pursuing Computer Science and Engineering in Indian Institute of Technology, Roorkee. I have been selected as a mentee at <a href="https://cncf.io" target="_blank">Cloud Native Computing Foundation</a> with <a href="https://kubevirt.io" target="_blank">KubeVirt</a> where I will be working to add the kernel boot functionality in it. I would like to thank my mentors <a href="https://github.com/danielBelenky" target="_blank">Daniel Belenky</a>, <a href="https://www.dhiller.de/" target="_blank">Daniel Hiller</a> and  <a href="https://dummdida.tumblr.com/" target="_blank">Fabian Deutsch</a> for the opportunity. In this blog I am going to tell you about how I got to know about CNCF, got selected as a mentee and about the journey so far.</p>
+                    <h2 class="section-heading"> Getting into the program</h2>
+                    <p>I had my eye on all the Linux Foundation events since I got a scholarship to attend the Open Source Summit + Embedded Linux Conference, Europe 2019, and have had added myself to CNCF slack. Therefore, I got to know about the mentorship program through the #mentoring channel on CNCF slack. I explored the projects that were listed <a href="https://github.com/cncf/mentoring/blob/master/communitybridge/2020/q2/project_ideas.md" target="_blank">here</a></p>
+                    <p> In order to apply as a mentee you first have to create a profile on <a href="https://people.communitybridge.org/participate/mentee" target="_blank">Community Bridge</a> and have to apply for a project from there. After you apply, there are some tasks that you have to complete in order to successfully complete the application. For KubeVirt we had 2 tasks:<br>
+                    <br>1. To submit a cover letter answering the following questions:
+                    <br>&emsp;&emsp; - How did you find out about our mentorship program?
+                    <br>&emsp;&emsp; - Why are you interested in this project?
+                    <br>&emsp;&emsp; - What experience and knowledge/skills do you have that are applicable to this project?
+                    <br>&emsp;&emsp; - What do you hope to get out of this mentorship experience?
+                    <br>2. To submit a resume.
+                    </p>
+                    
+                    <p> I spent some days reading about KubeVirt and the Community bridge program, updating my resume and writing my cover letter. The program results were going to be announced on 20th May. I waited till 10 PM for the results but it wasn’t announced till then and I slept early. It was the next day that I got to know that I have been selected as a mentee for the project through <a href="https://github.com/cncf/mentoring/pull/244" target="_blank">this PR</a> by Daniel Belenky.</p>                        
+                    
+                    <h2 class="section-heading">Journey so far</h2>
+                    
+                    <p>First to give you a brief introduction about Kubevirt, </p>
+                    <blockquote>KubeVirt is a virtual machine management add-on for <a href="https://kubernetes.io/" target="_blank">Kubernetes</a>. The aim is to provide a common ground for virtualization solutions on top of Kubernetes. It extends Kubernetes by adding additional virtualization resource types (especially the VM type) through <a href="https://kubernetes.io/docs/tasks/access-kubernetes-api/extend-api-custom-resource-definitions/" target="_blank">Kubernetes's Custom Resource Definitions API</a>. By using this mechanism, the Kubernetes API can be used to manage these VM resources alongside all other resources Kubernetes provides.</blockquote>
+                    
+                    <p> So in short, Kubevirt makes it possible to run and manage both VM and containers through Kubernetes. It represents VM as custom resources and manages changes to libvirt domains based on state of those resources. Why Libvirt? Kubevirt internally uses libvirt for managing qemu that creates the software emulation necessary for creating VMs. Thus we can also see Kubevirt as a program that adds the functionality of creating VMs through qemu in Kubernetes.</p>
+                    <p> My project is to add kernel boot feature in KubeVirt. KubeVirt till now allows to boot a VM from regular(virtual) disks. An alternative booting method is to directly provide a kernel, initrd, and cmdline to a VM for booting. So I have to work on defining the relevant public API and adding the necessary kernel boot support to KubeVirt.</p>   
+                    <p> Talking about the journey so far, week 1 went in getting familiar with the community and mentors,  and setting up the project on our local machines. Kubevirt requires kvm to be installed on the machine and kvm is till now only available for Ubuntu therefore it was not possible for me to set up the project on my MacOS. I even tried to set up the project in a VM but as it added 3 layers of nested virtualization, one by the VM and 2 layers by kubevirt(one by creating VMs and the other the cluster created by kubevirt), it wouldn’t work. It was then Fabian provided us with remote machines he got for us through <a href="https://www.cncf.io/community/infrastructure-lab/" target="_blank">CNCF Lab</a> to set up the project.</p>
+                    <img class="img-responsive" src="../images/htop.png" alt="An htop command running on the machine"><center>An htop command running on the machine</center>
+                    <p>Week 2 involved studying more about the project in a deeper level and getting more insights of how kubevirt calls the libvirt and qemu functionality to add virtualization in kubernetes. I also read about what kernel boot parameters are and how qemu gives us the functionality to boot a VM through kernel, initrd and cmdline. After that, I created a <a href="https://docs.google.com/document/d/1RHIh8l906WIno-zhhpzgGhL-795uZUr_YM6_noLEtvw/edit?usp=sharing" target="_blank">design proposal</a> for my project. It is still left to be reviewed and therefore any feedback from the community would definitely be helpful.</p>
+                    <p> Signing off for today, thanks!</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+     <!-- Footer -->
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/HritviBhandari" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/hritvi.bhandari.9" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.github.com/hritvi" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/hritvi" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:hritvi2801@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Hritvi Bhandari 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+   
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

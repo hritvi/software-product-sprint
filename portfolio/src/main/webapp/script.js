@@ -1,28 +1,40 @@
-// Copyright 2019 Google LLC
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     https://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
+// Floating label headings for the contact form
+$(function() {
+    $("body").on("input propertychange", ".floating-label-form-group", function(e) {
+        $(this).toggleClass("floating-label-form-group-with-value", !!$(e.target).val());
+    }).on("focus", ".floating-label-form-group", function() {
+        $(this).addClass("floating-label-form-group-with-focus");
+    }).on("blur", ".floating-label-form-group", function() {
+        $(this).removeClass("floating-label-form-group-with-focus");
+    });
+});
 
-/**
- * Adds a random greeting to the page.
- */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+// Navigation Scripts to Show Header on Scroll-Up
+jQuery(document).ready(function($) {
+    var MQL = 1170;
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
-
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
-}
+    //primary navigation slide-in effect
+    if ($(window).width() > MQL) {
+        var headerHeight = $('.navbar-custom').height();
+        $(window).on('scroll', {
+                previousTop: 0
+            },
+            function() {
+                var currentTop = $(window).scrollTop();
+                //check if user is scrolling up
+                if (currentTop < this.previousTop) {
+                    //if scrolling up...
+                    if (currentTop > 0 && $('.navbar-custom').hasClass('is-fixed')) {
+                        $('.navbar-custom').addClass('is-visible');
+                    } else {
+                        $('.navbar-custom').removeClass('is-visible is-fixed');
+                    }
+                } else if (currentTop > this.previousTop) {
+                    //if scrolling down...
+                    $('.navbar-custom').removeClass('is-visible');
+                    if (currentTop > headerHeight && !$('.navbar-custom').hasClass('is-fixed')) $('.navbar-custom').addClass('is-fixed');
+                }
+                this.previousTop = currentTop;
+            });
+    }
+});

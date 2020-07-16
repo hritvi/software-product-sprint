@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Hritvi Bhandari</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link href="../style.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-custom navbar-fixed-top" style="color: black;">
+        <div class="container-fluid" style="color: black;">
+            
+            <div class="navbar-header page-scroll" >
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand" href="../index.html"  style="color: black;">Hritvi Bhandari</a>
+            </div>
+
+           
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right"  >
+                    <li>
+                        <a href="../index.html" style="color: black;">Home</a>
+                    </li>
+                    <li>
+                        <a href="../about.html" style="color: black;">About</a>
+                    </li>
+                    <li>
+                        <a href="../resume.pdf" style="color: black;">Resume</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </nav>
+
+    
+    <header class="intro-header" style="color: black;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading" style="padding: 150px 0px 0px 0px">
+                        <h1 style="color: black;">Week 4 and 5 in CNCF</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <p>Hey everyone, so finally I began coding for my project last week. Last wednesday was the first time I spoke in the Kubevirt community meeting and it was a wonderful feeling when a lot of people were discussing about my project and also I had many people reviewing my proposal. </p>
+                    <p>So the next step was then to start coding. As discussed in the last meeting my mentors asked me to start writing the tests first, as the actual API design may change after the review process. I started studying about how VM’s are created and how the yaml file gets converted to Libvirt XML. I looked at some code files and functions and searched for PRs which adds API features and finally concluded that I would start writing my code from the converter file which handles all the logic behind converting the vmi json to Libvirt XML. I then added the tests for the same and filed my first PR(well it was a draft one) for the same.</p>
+                    <p>But after that I again had almost like no idea on what to do next and how to proceed. After discussing with mentors, we decided that I would study the lifecycle of VM and how different components come together to make create a VM. So it was again the time of brainstorming and I studied a lot about virt-launcher. So it is the virt-launcher which creates the virtual machine. The virt-launcher gets a VMI defination as a custom resource definition object inside the Kubernetes API server. Virt-launcher then uses a local libvirtd instance within its container to start the VMI. From there virt-launcher monitors the VMI process and terminates once the VMI has exited. I also studied about some validating-webhooks and some tools which helps in creation of VM. I added some more lines of code and the result was this:</p>
+                    
+                    <img class="img-responsive" src="../images/kubevirt1.png"><center>A successful VMI creation?</center>
+                    <p>Whao…the kernel-boot vm got created… </p>
+                    <p>I then tried to access the VM through vnc as mentioned <a href="https://github.com/kubevirt/kubevirt/blob/master/docs/getting-started.md#accessing-the-domain-via-vnc" target="_blank">here</a> but with no luck..and soon I realized that the vm creation had failed.</p>
+                    <img class="img-responsive" src="../images/kubevirt2.png">
+                    <p>Now I still need to figure out how this happened and where can we find the logs for the same. Also there’s a concept of containerDisk in VMs which I am not able to understand clearly till now. So next up would take out time on brainstorming about this and also about the causes of the kernel-boot vm failing.</p>
+                    <p>A lot more to do and learn...isn't it? Have a good day then and I am now going to try to debug this. Oh, Debugging isn't that bad.. :P</p>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <hr>
+     <!-- Footer -->
+     <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <ul class="list-inline text-center">
+                        <li>
+                            <a href="https://twitter.com/HritviBhandari" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.facebook.com/hritvi.bhandari.9" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.github.com/hritvi" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/hritvi" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="mailto:hritvi2801@gmail.com" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted">Copyright &copy; Hritvi Bhandari 2019</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+   
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
