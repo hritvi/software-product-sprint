@@ -1,4 +1,4 @@
- body {
+body {
   font-family: 'Lora', 'Times New Roman', serif;
   font-size: 20px;
   color: #333333;
@@ -399,4 +399,34 @@ img::-moz-selection {
 }
 body {
   -webkit-tap-highlight-color: #0085A1;
+}
+
+#commentForm{
+    display: flex;
+    width:100%;
+    flex-direction: row;
+}
+#commentBox{
+    height: 7vh;
+    padding: 15px;
+    flex-grow: 1
+}
+
+/* Breaker */
+
+.breaker {
+    height: 1px;
+    margin: 3rem auto;
+    width: 100%;
+}
+
+.breaker::before {
+    content: "• • •";
+    width: 100%;
+    text-align: center;
+    display: block;
+    color: #aaa;
+    letter-spacing: 4px;
+    position: relative;
+    top: -8px;
 }

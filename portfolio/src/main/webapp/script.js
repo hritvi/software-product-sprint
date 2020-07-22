@@ -38,3 +38,30 @@ jQuery(document).ready(function($) {
             });
     }
 });
+
+updateComments = ()=>{
+    var commentsDiv = document.querySelector('#comments');
+    commentsDiv.innerHTML =comments.map(function (text) {
+        return '<p>'+text+'</p><hr>';
+    }).join('');
+}
+
+fetch('/comment')
+  .then(response => response.json())
+  .then(data =>{ comments = data.map((obj)=>obj.text); updateComments()});
+
+$(function() {
+    $('#commentForm').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: 'comment',
+            data:$('#commentForm').serialize(),
+        });
+        comments = [$('#commentBox')[0].value,...comments];
+        updateComments();
+        $('#commentForm')[0].reset();
+        return false;
+    }); 
+})
+
