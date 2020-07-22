@@ -50,18 +50,9 @@ fetch('/comment')
   .then(response => response.json())
   .then(data =>{ comments = data.map((obj)=>obj.text); updateComments()});
 
-$(function() {
-    $('#commentForm').submit(function(e) {
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: 'comment',
-            data:$('#commentForm').serialize(),
-        });
-        comments = [$('#commentBox')[0].value,...comments];
-        updateComments();
-        $('#commentForm')[0].reset();
-        return false;
-    }); 
-})
-
+commentForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    comment = document.getElementById("commentBox").value;
+    comment = comment.trim();
+    commentForm.submit();
+});
